@@ -1,0 +1,64 @@
+ .App {
+  text-align: center;
+}
+
+.graph-elements{
+  box-sizing: border-box;
+  box-shadow: 10px 10px 10px #888888;
+}
+
+#filter-button{
+  text-align:justify;
+  background-color: #EEEEEE;
+  border: 2px solid #282c34;
+  margin: 5vh 0 1px 0;
+}
+#filter-button:hover{
+  background-color: rgba(245, 239, 245, 0.5);
+}
+
+.filter-inputs{
+  width: 80%;
+  height: 4%;
+  margin: 1px 0 1px 0;
+  box-sizing: inherit;
+  border-radius: 4px;
+  border: 0px;
+  color: black;
+}
+
+#left-container{
+  background-color: #1C4E80;
+  color: white;
+  margin: 0 0 0 0.5vw;
+  width: 15%;
+  height: 100vh;
+  position:sticky;
+  left:0;
+  top:0;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 3px; 
+}
+#right-container{
+  background-color:  #F1F1F1 ;
+  margin: 0 0.5vw 0 0;
+  width: 85%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.row-container{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1vh 0 1vh 0;
+  box-shadow: 20px 10px 8px #888888;
+}
+
+
+#static-head{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
