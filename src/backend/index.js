@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const port = 5000;
 const mongoDB = require("./db");
-
+const job = require ("./Routes/cron-job")
 mongoDB();
+
+job.start();
 
 app.get('/', (req, res) => {
   res.send('Server is Working!')
