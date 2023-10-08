@@ -35,6 +35,8 @@ function App() {
   const [visible, setVisible] = useState("none");
 
   
+  //http://localhost:5000/api/getData
+  
   let fetchedData = [];
   // Fetching the data from dataBase
   const loadData = async () => {

@@ -108,7 +108,7 @@ export default function LikelihoodPie({ pestleFilter, fetchedData }) {
     makeGraph();
   }, [pestleFilter])
   return (
-    <div style={{ margin: "3vh 1vw 1vh 1vw", borderRadius: "30px", height: "50vh" }} className=' p-3 mb-5 bg-white'>
+    <div style={{ margin: "3vh 1vw 1vh 1vw", borderRadius: "30px", height: "50vh", border:"1px solid black" }} className=' p-3 mb-5 bg-white'>
       <Pie options={options} data={data} />
     </div>
   )

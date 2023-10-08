@@ -4,7 +4,7 @@
 
 .graph-elements{
   box-sizing: border-box;
-  box-shadow: 10px 10px 10px #888888;
+  /* box-shadow: 10px 10px 10px #888888; */
 }
 
 #filter-button{

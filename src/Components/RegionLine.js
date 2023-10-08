@@ -192,7 +192,7 @@ export default function RegionLine({ regionFilter, fetchedData }) {
     makeGraph();
   }, [regionFilter])
   return (
-    <div style={{ margin: "3vh 1vw 1vh 1vw", height: "50vh", borderRadius:"30px" }} className=' p-3 mb-5 bg-white'>
+    <div style={{ margin: "3vh 1vw 1vh 1vw", height: "50vh", borderRadius:"30px", border:"1px solid black" }} className=' p-3 mb-5 bg-white'>
       <Line options={options} data={data} />
     </div>
   )

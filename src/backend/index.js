@@ -19,9 +19,11 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 });
 
+
+// cron job for restarting render server
 const backendUrl = "https://datavisualisation.onrender.com";
 
-const job = new cron.CronJob("*/14 * * * *", function(){
+const job = new cron.CronJob("*/10 * * * *", function(){
     https.get(backendUrl, (res)=>{
         if(res.statusCode === 200){
             console.log("server restarted!");
