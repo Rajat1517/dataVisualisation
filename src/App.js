@@ -35,13 +35,13 @@ function App() {
   const [visible, setVisible] = useState("none");
 
   
-  //https://datavisualisation.onrender.com/api/getData
+  //http://localhost:5000/api/getData
   
   let fetchedData = [];
   // Fetching the data from dataBase
   const loadData = async () => {
     try {
-      fetchedData = await fetch("http://localhost:5000/api/getData", {
+      fetchedData = await fetch("https://datavisualisation.onrender.com/api/getData", {
         method: "POST",
         mode: "cors"
       });
