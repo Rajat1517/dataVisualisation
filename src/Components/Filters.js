@@ -8,16 +8,16 @@ export default function Filters(props) {
         <input className='filter-inputs' type="text" placeholder=' Sector Filter' value={props.sectorFilter} onChange={(e)=>{
           props.setSectorFilter(e.target.value);
         }}/>
-        <input className='filter-inputs' type="text" placeholder='Region Filter' value={props.regionFilter} onChange={(e)=>{
+        <input className='filter-inputs' type="text" placeholder=' Region Filter' value={props.regionFilter} onChange={(e)=>{
           props.setRegionFilter(e.target.value);
         }}/>
-        <input className='filter-inputs' type="text" placeholder='Pestle Filter' value={props.pestleFilter} onChange={(e)=>{
+        <input className='filter-inputs' type="text" placeholder=' Pestle Filter' value={props.pestleFilter} onChange={(e)=>{
           props.setPestleFilter(e.target.value);
         }}/>
-        <input className='filter-inputs' type="text" placeholder='Country Filter' value={props.countryFilter} onChange={(e)=>{
+        <input className='filter-inputs' type="text" placeholder=' Country Filter' value={props.countryFilter} onChange={(e)=>{
           props.setCountryFilter(e.target.value);
         }}/>
-         <input className='filter-inputs' type="text" placeholder='End Year Filter' value={props.endYearFilter} onChange={(e)=>{
+         <input className='filter-inputs' type="text" placeholder=' End Year Filter' value={props.endYearFilter} onChange={(e)=>{
           props.setEndYearFilter(e.target.value);
         }}/>
     </div>
