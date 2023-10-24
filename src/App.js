@@ -36,12 +36,12 @@ function App() {
 
   
   //http://localhost:5000/api/getData
-  
+  // https://datavisualisation.onrender.com
   let fetchedData = [];
   // Fetching the data from dataBase
   const loadData = async () => {
     try {
-      fetchedData = await fetch("https://datavisualisation.onrender.com/api/getData", {
+      fetchedData = await fetch("https://datavisualisation-va1q.onrender.com/api/getData", {
         method: "POST",
         mode: "cors"
       });
