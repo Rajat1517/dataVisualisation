@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import {
   Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
   BarElement,
   Title,
   Legend,
@@ -8,9 +10,11 @@ import {
 import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
+  CategoryScale,
+  LinearScale,
   BarElement,
   Title,
-  Legend
+  Legend,
 );
 
 

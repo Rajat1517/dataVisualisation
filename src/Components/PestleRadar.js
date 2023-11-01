@@ -7,6 +7,7 @@ import {
   LineElement,
   Filler,
   Legend,
+  Tooltip
 } from 'chart.js';
 
 import { Radar } from 'react-chartjs-2';
@@ -16,7 +17,8 @@ ChartJS.register(
   PointElement,
   LineElement,
   Filler,
-  Legend
+  Legend,
+  Tooltip
 );
 
 export default function PestleRadar({ pestleFilter, fetchedData }) {
