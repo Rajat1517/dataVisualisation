@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import {
   Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
   Title,
-  Tooltip,
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
-  CategoryScale,
-  LinearScale,
   BarElement,
   Title,
-  Tooltip,
   Legend
 );
 
@@ -114,7 +108,7 @@ export default function YearBar({endYearFilter, fetchedData }) {
       return i === arr.indexOf(year) && year<=2060;
     })
     
-    // Final counts of start_years and end_years are collected 
+    // Final counts of start_years and end_years are collected, for the possibility that some of the start or end years are not common
     uniqueYears.sort((a,b)=>a-b);
     console.log(uniqueEndYears);
     let finalCountEndYears = Array(uniqueYears.length).fill(0);

@@ -1,5 +1,19 @@
 import React, { useEffect, useState } from 'react'
+import {
+  Chart as ChartJS,
+  LineElement,
+  Title,
+  Legend,
+} from 'chart.js';
+
 import { Line } from 'react-chartjs-2';
+
+ChartJS.register(
+  LineElement,
+  Title,
+  Legend
+);
+
 
 export default function RegionLine({ regionFilter, fetchedData }) {
 

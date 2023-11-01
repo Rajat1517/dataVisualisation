@@ -1,21 +1,12 @@
 import React from 'react'
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  ArcElement,
-  Tooltip,
-  Legend,
-} from 'chart.js';
 import { PolarArea } from 'react-chartjs-2';
-
-ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 // Data to pass to the Doughnut graph
 const data = {
   labels: ['', ''],
   datasets: [
     {
-      label: '# of Votes',
+      
       // Dummy data array is used for the graph
       data: [12, 19],
       backgroundColor: [

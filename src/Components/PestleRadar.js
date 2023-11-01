@@ -6,9 +6,9 @@ import {
   PointElement,
   LineElement,
   Filler,
-  Tooltip,
   Legend,
 } from 'chart.js';
+
 import { Radar } from 'react-chartjs-2';
 
 ChartJS.register(
@@ -16,7 +16,6 @@ ChartJS.register(
   PointElement,
   LineElement,
   Filler,
-  Tooltip,
   Legend
 );
 
@@ -27,6 +26,7 @@ export default function PestleRadar({ pestleFilter, fetchedData }) {
   // chartIndia hold the associated count of pestles with India
   // chartRussia hold the associated count of pestles with Russia
   // chartChina hold the associated count of pestles with China
+  
   const [chartPestle, setChartPestle] = useState([]);
   const [chartIndia, setChartIndia] = useState([]);
   const [chartRussia, setChartRussia] = useState([]);

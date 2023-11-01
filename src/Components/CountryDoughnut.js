@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import {Chart as ChartJs,Title,Legend} from "chart.js";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJs.register(
+  Title,
+  Legend
+);
 
 
 export default function CountryDoughnut({ countryFilter, fetchedData }) {

@@ -5,7 +5,6 @@ import {
   LinearScale,
   BarElement,
   Title,
-  Tooltip,
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
@@ -15,7 +14,6 @@ ChartJS.register(
   LinearScale,
   BarElement,
   Title,
-  Tooltip,
   Legend
 );
 
@@ -140,7 +138,7 @@ export default function EnergyTopics({ fetchedData }) {
     })
     uniqueTopics.push("Others");
 
-    // Diving the data in 3 portions
+    // Dividing the data in 3 portions
     let countTopic1 = Array(uniqueYears.length).fill(0);
     let countTopic2 = Array(uniqueYears.length).fill(0);
     let countTopic3 = Array(uniqueYears.length).fill(0);

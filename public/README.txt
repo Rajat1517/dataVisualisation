@@ -18,3 +18,7 @@ The website is responsive till these minimum dimensions: 725 x 605 .
 As they say that "Improvement is an evergreen option", so follows this app too. There are scopes of Improvement which can be included in the future updates.
 
 Hope you find this one interesting!!
+
+
+<!--------------------------------------------------------->
+
