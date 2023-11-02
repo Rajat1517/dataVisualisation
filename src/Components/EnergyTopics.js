@@ -17,6 +17,9 @@ ChartJS.register(
   Legend
 );
 
+/*
+  This component uses years and topics with sector as Energy. It takes up the count of all topics in the selected years and club the topics with count <=70 as others. 
+*/
 
 export default function EnergyTopics({ fetchedData }) {
 

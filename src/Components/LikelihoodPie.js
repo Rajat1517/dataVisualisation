@@ -4,9 +4,11 @@ import { Pie } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement,Title,Legend);
 
-
+/*
+  The component uses pestles and an average of crorresponding likelihoods, then represent them as the accuracy of WION channel's news in those pestle domains.
+*/
 export default function LikelihoodPie({ pestleFilter, fetchedData }) {
-
+  
   // States of this Component
   // chartPestles hold the unique pestles depicted in the chart
   // chartRatios hold the associated  average Likelhoods with the pestles
@@ -17,7 +19,7 @@ export default function LikelihoodPie({ pestleFilter, fetchedData }) {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {
+    plugins: { 
       legend: {
         position: 'top',
       },

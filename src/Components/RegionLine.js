@@ -14,6 +14,9 @@ ChartJS.register(
   Legend
 );
 
+/*
+    This component uses regions and their corresponding sectors. Only energy,manufactoring, financial services are considered, rest are considered others. Also, regions with count of sectors <30 are grouped as others.
+ */
 
 export default function RegionLine({ regionFilter, fetchedData }) {
 
@@ -114,6 +117,7 @@ export default function RegionLine({ regionFilter, fetchedData }) {
     let countFinancialService = Array(uniqueRegions.length).fill(0);
     let countOthers = Array(uniqueRegions.length).fill(0);
 
+    // This will be used for filtering other regions
     let countRegions = Array(uniqueRegions.length).fill(0);
 
     uniqueRegions.forEach((region, i) => {

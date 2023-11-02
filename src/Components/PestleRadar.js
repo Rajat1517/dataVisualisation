@@ -21,6 +21,10 @@ ChartJS.register(
   Tooltip
 );
 
+/*
+    This component uses pestle. The unique count is used to define the count of gdp propotions of India,China,Russia. The pestles array is divided into 3 portions and those portions are used to count the gdp proportions.
+*/
+
 export default function PestleRadar({ pestleFilter, fetchedData }) {
 
   // States of this Component

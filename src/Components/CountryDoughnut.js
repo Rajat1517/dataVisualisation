@@ -7,6 +7,9 @@ ChartJs.register(
   Legend
 );
 
+/*
+  The component uses countries and their individual counts to project the energy consumption in the country, countries with count <15 are clubbed together as others.
+*/
 
 export default function CountryDoughnut({ countryFilter, fetchedData }) {
 

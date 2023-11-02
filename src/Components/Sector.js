@@ -14,6 +14,9 @@ ChartJS.register(
     Legend
 );
 
+/*
+    This component uses sectors and then divide the array into 2 portions. Each portions gives the count of recruits in the respective sectors in India and Australia.
+*/
 
 export default function Sector({ sectorFilter,fetchedData }) {
 

@@ -17,6 +17,9 @@ ChartJS.register(
   Legend,
 );
 
+/*
+    This component uses start year and end years. It creates a universal array of all the years involved, then show the count of years as start year or end year in the graph.
+*/
 
 export default function YearBar({endYearFilter, fetchedData }) {
 

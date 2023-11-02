@@ -20,6 +20,10 @@ ChartJS.register(
   Legend
 );
 
+/*
+    This component uses intensity and relevance. Intensity counts are used as the actual stockprices and relevance counts are used as predicted stockprices. 
+*/
+
 
 export default function StockLine({ fetchedData }) {
 
