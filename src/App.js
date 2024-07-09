@@ -4,7 +4,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import StockLine from './Components/StockLine';
-import Navbar from "./Components/Navbar"
+import Navbar from "./Components/Navbar";
 import Sector from './Components/Sector';
 import PestleRadar from './Components/PestleRadar';
 import CountryDoughnut from './Components/CountryDoughnut';
@@ -18,6 +18,7 @@ import DummyCarousel from './Components/DummyCarousel';
 import Logo from "./logo.png"
 import chart from "./chart.png"
 import world from "./world.png"
+
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
   const [visible, setVisible] = useState("none");
 
   
-  //http://localhost:5000/api/getData
+  //https://datavisualisation-va1q.onrender.com/api/getData  http://localhost:5000/api/getData
   // https://datavisualisation.onrender.com
   let fetchedData = [];
   // Fetching the data from dataBase

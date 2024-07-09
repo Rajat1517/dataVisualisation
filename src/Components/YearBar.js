@@ -50,7 +50,7 @@ export default function YearBar({endYearFilter, fetchedData }) {
       },
     },
   };
-
+  
   // Data to be passed to the graph
   const data = {
     // chartYears is used as the labels

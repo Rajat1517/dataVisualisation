@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Doughnut } from 'react-chartjs-2';
-import {Chart as ChartJs,Title,Legend} from "chart.js";
+import {Chart as ChartJs,ArcElement,Title,Legend} from "chart.js";
 
 ChartJs.register(
+  ArcElement,
   Title,
   Legend
 );
@@ -26,7 +27,7 @@ export default function CountryDoughnut({ countryFilter, fetchedData }) {
       legend: {
         position: 'top',
       },
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       title: {
         display: true,
         text: 'Annual Energy consumption for 2020-21 (in 100 Billion kWh)',

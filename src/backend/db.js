@@ -1,5 +1,4 @@
  const mongoose = require('mongoose');
-//  require('dotenv').config();
  const mongoURI = "mongodb+srv://rajatmishra0815:Project_123@cluster0.3tsmuba.mongodb.net/dataVisualisationDB?retryWrites=true&w=majority" ;
 
 

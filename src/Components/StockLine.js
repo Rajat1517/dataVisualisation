@@ -50,6 +50,8 @@ export default function StockLine({ fetchedData }) {
     },
   };
 
+  
+
   // Data to pass to the graph
   const data = {
     // chartWeeks is used as the labels
