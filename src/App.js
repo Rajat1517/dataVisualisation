@@ -34,7 +34,7 @@ function App() {
   const [countryFilter, setCountryFilter] = useState("");
   const [endYearFilter, setEndYearFilter] = useState("");
   const [visible, setVisible] = useState("none");
-
+  const [fetching, setFetching]= useState(true);
   
   //https://datavisualisation-va1q.onrender.com/api/getData  http://localhost:5000/api/getData
   // https://datavisualisation.onrender.com
@@ -42,13 +42,14 @@ function App() {
   // Fetching the data from dataBase
   const loadData = async () => {
     try {
-      fetchedData = await fetch("https://datavisualisation-va1q.onrender.com/api/getData", {
+      fetchedData = await fetch("https://datavisualisation.onrender.com/api/getData", {
         method: "POST",
         mode: "cors"
       });
       fetchedData = await fetchedData.json();
       fetchedData = fetchedData[0];
       setDataItems(fetchedData);
+      setFetching(false);
     } catch (err) {
       console.log(err);
     }
@@ -94,11 +95,28 @@ function App() {
             <hr/>
           </div>
         </div>
-
-        <div className="" id="right-container">
+        
+        { <div className="" id="right-container">
           <Navbar />
           {/* Using Grid */}
-          <div className='row'>
+          {
+          fetching && 
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "84%"
+          }}>
+            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 12L18.1254 16.1694C18.6725 16.5418 19 17.1608 19 17.8227V20.5C19 20.7761 18.7761 21 18.5 21H5.5C5.22386 21 5 20.7761 5 20.5V17.8227C5 17.1608 5.32746 16.5418 5.87462 16.1694L12 12ZM12 12L18.1254 7.83062C18.6725 7.45819 19 6.83917 19 6.17729V3.5C19 3.22386 18.7761 3 18.5 3H5.5C5.22386 3 5 3.22386 5 3.5V6.17729C5 6.83917 5.32746 7.45819 5.87462 7.83062L12 12Z" stroke="#33363F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15 20.2071V20.85C15 20.9328 14.9328 21 14.85 21H9.15C9.06716 21 9 20.9328 9 20.85V20.2071C9 20.0745 9.05268 19.9473 9.14645 19.8536L11.4343 17.5657C11.7467 17.2533 12.2533 17.2533 12.5657 17.5657L14.8536 19.8536C14.9473 19.9473 15 20.0745 15 20.2071Z" fill="#33363F"/>
+<path d="M12 11L17 8H7L12 11Z" fill="#33363F"/>
+<path d="M12 18V12" stroke="#33363F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+          </div>
+        }
+          { !fetching && <div className='row'>
             {/* Images to make UI more attracting */}
             <div className='col-lg-8'>
             <div style={{ margin: "3vh 1vw 1vh 1vw", height: "25vh", borderRadius:"30px", backgroundColor:"#1C4E80" }} id="static-head">
@@ -112,7 +130,6 @@ function App() {
             </div>
 
             {/* Grpahs made with the data values from dataItems */}
-
             <div className='col-lg-6 graph-elements'>  
               {
                 // Stock value interpretes the values of Intensity and Relevance from dataBase
@@ -163,11 +180,10 @@ function App() {
                 dataItems.length > 0 ? <PestleRadar pestleFilter={pestleFilter} fetchedData={dataItems} /> : <div></div>
               }
             </div>
-          </div>
+          </div>}
           <Footer/>
-        </div>
+        </div>}
       </div>
-      
     </div>
   );
 }
