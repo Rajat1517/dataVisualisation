@@ -26,45 +26,45 @@ function TimeSeries() {
     const [dataY,setDataY]= useState([]);
     const [timeSeries,setTimeSeries]= useState([]);
 
-  //   const options = {
-  //       responsive: true,
-  //       maintainAspectRatio: false ,
-  //       scales: {
-  //           y: {
-  //             min: 0, // Minimum value for the y-axis
-  //             max: 85, // Maximum value for the y-axis
-  //             ticks:{
-  //               stepSize: 5,
-  //             }
-  //           }
-  //         },
-  //       plugins: {
-  //         legend: {
-  //           display: false,
-  //           position: 'top',
-  //         },
-  //         title: {
-  //           display: true,
-  //           text: 'Amount of Gas Accidents',
-  //         },
-  //       },
-  //     };
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false ,
+        scales: {
+            y: {
+              min: 0, // Minimum value for the y-axis
+              max: 85, // Maximum value for the y-axis
+              ticks:{
+                stepSize: 5,
+              }
+            }
+          },
+        plugins: {
+          legend: {
+            display: false,
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Amount of Gas Accidents',
+          },
+        },
+      };
 
-  //   const data = {
-  //   // chartWeeks is used as the labels
-  //   labels: dataX,
-  //   datasets: [
-  //     {
-  //       fill: false,
-  //       label: 'Frequency',
-  //       // chartActual is used as the data for actual line
-  //       data: dataY,
-  //       backgroundColor: '#0091d5b9',
-  //       borderColor: '#0091D5',
-  //       borderWidth: 2,
-  //     },
-  //   ],
-  // };
+    const data = {
+    // chartWeeks is used as the labels
+    labels: dataX,
+    datasets: [
+      {
+        fill: false,
+        label: 'Frequency',
+        // chartActual is used as the data for actual line
+        data: dataY,
+        backgroundColor: '#0091d5b9',
+        borderColor: '#0091D5',
+        borderWidth: 2,
+      },
+    ],
+  };
 
   const loadTimeSeries= async ()=>{
     try{
@@ -92,7 +92,7 @@ function TimeSeries() {
     <div style={{
         height: "50%"
     }}>
-        {/* <Line options={options} data={data}/> */}
+        <Line options={options} data={data}/>
     </div>
   )
 }
