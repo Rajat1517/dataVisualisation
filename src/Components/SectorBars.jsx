@@ -1,40 +1,52 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Legend,
   } from 'chart.js';
-  import { Line } from 'react-chartjs-2';
+  import { Bar } from 'react-chartjs-2';
   
   ChartJS.register(
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Legend
   );
+  
 
+function SectorBars() {
 
-function TimeSeries() {
-
+    const [sectorData,setSectorData]= useState(null);
     const [dataX,setDataX]= useState([]);
     const [dataY,setDataY]= useState([]);
-    const [timeSeries,setTimeSeries]= useState([]);
+
+    const loadSectorData= async ()=>{
+        try{
+            const res= await fetch("http://localhost:5000/api/getSector-Bars");
+            const {data}= await res.json();
+            setSectorData(data);
+            const x= data.map(item=>item.sector);
+            const y= data.map(item=>item.count);
+            setDataX(x);
+            setDataY(y);
+        }catch(error){
+            console.log("Sector API error: ",error);
+        }
+    }
 
     const options = {
         responsive: true,
         maintainAspectRatio: false ,
         scales: {
             y: {
-              min: 0, // Minimum value for the y-axis
-              max: 85, // Maximum value for the y-axis
+            //   min: 0, // Minimum value for the y-axis
+              max: 550, // Maximum value for the y-axis
               ticks:{
-                stepSize: 5,
+                stepSize: 10,
               }
             }
           },
@@ -66,30 +78,13 @@ function TimeSeries() {
     ],
   };
 
-  const loadTimeSeries= async ()=>{
-    try{
-      const res= await fetch("http://localhost:5000/api/getTime-Series");
-      const {data}= await res.json();
-      setTimeSeries(data);
-    }catch(error){
-      console.log(error);
-    }
-  }
-
-  useEffect(()=>{
-    loadTimeSeries();
-  },[])
-
-  useEffect(()=>{
-    let x= timeSeries.map(item=> item.year);
-    let y= timeSeries.map(item=> item.count);
-    setDataX(x);
-    setDataY(y);
-  },[timeSeries])
+    useEffect(()=>{
+        loadSectorData();
+    },[])
 
   return (
-    <Line options={options} data={data}/>
+      <Bar options={options} data={data} />
   )
 }
 
-export default TimeSeries
+export default SectorBars

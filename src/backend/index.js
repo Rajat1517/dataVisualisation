@@ -5,12 +5,13 @@ const {mongoDB} = require("./db");
 const cron = require('cron');
 const https = require("https");
 
-let  data=[];
+let  data= require("../../jsondata.json");
+
 const asyncMongo= async ()=>{
     data= await mongoDB();
 }
 
-asyncMongo();
+// asyncMongo();
 
 app.get('/', (req, res) => {
   res.send('Server is Working!')
@@ -73,31 +74,78 @@ app.get("/api/getTime-Series", (req,res)=>{
 });
 
 
+// Endpoint for sector bars data
+app.get("/api/getSector-Bars",(req,res)=>{
+    let sectors= new Set(data.map(item=>item.sector));
+    sectors= [...sectors];
+    sectors= sectors.filter(sector=> sector!=="");
+    let ans=[];
+    let count=0,countOthers=1000;
+    sectors.forEach(sector=>{
+        count=0;
+        data.forEach(item=>{
+            if(item.sector===sector)count++;
+        })
+        ans.push({
+            sector,
+            count,
+        })
+        countOthers-=count;
+    })
+    ans.push({
+        sector: "Others",
+        count: countOthers,
+    })
+    res.set('Access-Control-Allow-Origin', '*');
+    res.send({
+        data: ans
+    });
+});
+
+// Endpoint for region bubbles data
+app.get("/api/get-region-bubbles",(req,res)=>{
+    let regions= new Set(data.map(item=>item.region.toLowerCase()));
+    regions= [...regions];
+    regions= regions.filter(region=>region!=="");
+    regions= regions.map((region)=>{
+        let ans=region[0].toUpperCase();
+        for(let i=1;i<region.length;i++){
+            if(region[i-1]===" "){
+                ans+= region[i].toUpperCase();
+            }
+            else ans+= region[i];
+        }
+        return ans;
+    });
+    res.set('Access-Control-Allow-Origin', '*')
+    res.send(regions);
+});
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`App listening on port ${port}`)
 });
 
 
 
 // cron job for restarting render server
 
-const backendUrl = "https://datavisualisation-va1q.onrender.com";  //https://datavisualisation.onrender.com
+// const backendUrl = "https://datavisualisation-va1q.onrender.com";  //https://datavisualisation.onrender.com
 
-const job = new cron.CronJob("*/11 * * * *", function(){
-    https.get(backendUrl, (res)=>{
-        if(res.statusCode === 200){
-            console.log("server restarted!");
-        }
-        else{
-            console.error("failed to restart");
-        }
-    }).on('error', (err)=>{
-        console.error(err.message);
-    });
-});
+// const job = new cron.CronJob("*/11 * * * *", function(){
+//     https.get(backendUrl, (res)=>{
+//         if(res.statusCode === 200){
+//             console.log("server restarted!");
+//         }
+//         else{
+//             console.error("failed to restart",res.statusCode);
+//         }
+//     }).on('error', (err)=>{
+//         console.error(err.message);
+//     });
+// });
 
 
-job.start();
+// job.start();
 
 
 

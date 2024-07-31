@@ -59,3 +59,9 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+
+.chart-container{
+  height: 50%;
+  border: 1px solid blue;
+}

@@ -19,6 +19,7 @@ import Logo from "./logo.png"
 import chart from "./chart.png"
 import world from "./world.png"
 import TimeSeries from './Components/TimeSeries';
+import SectorBars from './Components/SectorBars';
 
 function App() {
 
@@ -64,13 +65,19 @@ function App() {
 
   
   return(
-    <div className='App'>
-      <div style={{
-        height: "50%",
-      }}>
+    <div style={{
+      height: "100vh",
+      padding: "0 30%",
+      margin: "2%",
+      border: "1px solid black"
+    }}>
+      <div className='chart-container'>
       <TimeSeries/>
       </div>
-    </div>
+      <div className='chart-container'>
+      <SectorBars/>
+      </div>
+      </div>
   )
   
   
