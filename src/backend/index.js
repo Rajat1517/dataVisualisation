@@ -83,21 +83,21 @@ app.listen(port, () => {
 
 const backendUrl = "https://datavisualisation-va1q.onrender.com";  //https://datavisualisation.onrender.com
 
-// const job = new cron.CronJob("*/11 * * * *", function(){
-//     https.get(backendUrl, (res)=>{
-//         if(res.statusCode === 200){
-//             console.log("server restarted!");
-//         }
-//         else{
-//             console.error("failed to restart",res.statusCode);
-//         }
-//     }).on('error', (err)=>{
-//         console.error(err.message);
-//     });
-// });
+const job = new cron.CronJob("*/11 * * * *", function(){
+    https.get(backendUrl, (res)=>{
+        if(res.statusCode === 200){
+            console.log("server restarted!");
+        }
+        else{
+            console.error("failed to restart");
+        }
+    }).on('error', (err)=>{
+        console.error(err.message);
+    });
+});
 
 
-// job.start();
+job.start();
 
 
 
