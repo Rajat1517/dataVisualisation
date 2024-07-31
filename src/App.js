@@ -18,7 +18,7 @@ import DummyCarousel from './Components/DummyCarousel';
 import Logo from "./logo.png"
 import chart from "./chart.png"
 import world from "./world.png"
-
+import TimeSeries from './Components/TimeSeries';
 
 function App() {
 
@@ -55,11 +55,25 @@ function App() {
     }
   }
 
+  
+
   // Data will be fetched everytime the App.js is re-rendered
   useEffect(() => {
     loadData();
   }, []);
 
+  
+  return(
+    <div className='App'>
+      <div style={{
+        height: "50%",
+      }}>
+      <TimeSeries/>
+      </div>
+    </div>
+  )
+  
+  
   return (
 
     <div className="App">

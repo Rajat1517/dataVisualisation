@@ -1,7 +1,7 @@
  const mongoose = require('mongoose');
  const mongoURI = "mongodb+srv://rajatmishra0815:Project_123@cluster0.3tsmuba.mongodb.net/dataVisualisationDB?retryWrites=true&w=majority" ;
 
-
+let arr=[];
 const mongoDB= async ()=>{
     try{
         // Connecting the mongoose object with the dataVisualisation dataBase from my MongoDB Atlas Cluster
@@ -11,14 +11,18 @@ const mongoDB= async ()=>{
             const fecthedData= await mongoose.connection.db.collection("dataItems");
             console.log("Here!");
         // Globally declaring the fetched data 
-            let arr= await fecthedData.find({}).toArray()
+            arr= await fecthedData.find({}).toArray();
             global.dataArray= arr;
+            return arr;
     }
     catch(err){
         console.log(err);
     }
 };
 
-module.exports = mongoDB;
 
+module.exports = {
+    mongoDB,
+    arr
+};
 
