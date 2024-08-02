@@ -117,8 +117,28 @@ app.get("/api/get-region-bubbles",(req,res)=>{
         }
         return ans;
     });
+
+    let response=[];
+    let count,intensity,relevance,likelihood;
+    regions.forEach(region=>{
+        count=0;intensity=0;relevance=0;likelihood=0;
+        data.forEach(item=>{
+            if(item.region.toLowerCase()===region.toLowerCase()){
+                count++;
+                intensity+= typeof item.intensity === "number"?item.intensity:0;
+                relevance+= typeof item.relevance === "number"? item.relevance:0;
+                likelihood+= typeof item.likelihood === "number"? item.likelihood:0;
+            }
+        })
+        response.push({
+            region,
+            likelihood: ~~(likelihood/count),
+            relevance: ~~(relevance/count),
+            intensity: ~~(intensity/count),
+        })
+    })
     res.set('Access-Control-Allow-Origin', '*')
-    res.send(regions);
+    res.send(response);
 });
 
 app.listen(port, () => {

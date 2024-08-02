@@ -48,7 +48,7 @@ function TimeSeries() {
             text: 'Amount of Gas Accidents',
           },
         },
-      };
+    };
 
     const data = {
     // chartWeeks is used as the labels
@@ -64,7 +64,7 @@ function TimeSeries() {
         borderWidth: 2,
       },
     ],
-  };
+    };
 
   const loadTimeSeries= async ()=>{
     try{

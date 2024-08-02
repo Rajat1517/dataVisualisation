@@ -20,6 +20,8 @@ import chart from "./chart.png"
 import world from "./world.png"
 import TimeSeries from './Components/TimeSeries';
 import SectorBars from './Components/SectorBars';
+import RegionBubbles from './Components/RegionBubbles';
+import RegionScatter from './Components/RegionScatter';
 
 function App() {
 
@@ -67,7 +69,7 @@ function App() {
   return(
     <div style={{
       height: "100vh",
-      padding: "0 30%",
+      // padding: "0 30%",
       margin: "2%",
       border: "1px solid black"
     }}>
@@ -77,6 +79,15 @@ function App() {
       <div className='chart-container'>
       <SectorBars/>
       </div>
+      <div className='chart-container'>
+      <RegionBubbles/>
+      </div>
+      {/* <div style={{
+        height: "100%",
+        width: "100%"
+      }}>
+      <RegionScatter/>
+      </div> */}
       </div>
   )
   
