@@ -22,6 +22,7 @@ import TimeSeries from './Components/TimeSeries';
 import SectorBars from './Components/SectorBars';
 import RegionBubbles from './Components/RegionBubbles';
 import RegionScatter from './Components/RegionScatter';
+import HeatMap from './Components/HeatMap';
 
 function App() {
 
@@ -81,6 +82,9 @@ function App() {
       </div>
       <div className='chart-container'>
       <RegionBubbles/>
+      </div>
+      <div className='chart-container'>
+      <HeatMap/>
       </div>
       {/* <div style={{
         height: "100%",

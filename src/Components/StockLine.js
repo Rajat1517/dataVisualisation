@@ -86,6 +86,7 @@ export default function StockLine({ fetchedData }) {
     for (let i = 0; i < fetchedData.length; i++) {
       if (fetchedData[i].intensity !== "") intensities.push(fetchedData[i].intensity);
     }
+    
     let uniqueIntensities = intensities.filter((intensity, i, arr) => {
       return i === arr.indexOf(intensity);
     })

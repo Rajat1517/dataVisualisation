@@ -11,7 +11,86 @@ const asyncMongo= async ()=>{
     data= await mongoDB();
 }
 
+const countryCoordinates = {
+    "United States of America": [37.0902, -95.7129],
+    "Mexico": [23.6345, -102.5528],
+    "Nigeria": [9.082, 8.6753],
+    "Lebanon": [33.8547, 35.8623],
+    "Russia": [61.524, 105.3188],
+    "Saudi Arabia": [23.8859, 45.0792],
+    "Angola": [-11.2027, 17.8739],
+    "Egypt": [26.8206, 30.8025],
+    "South Africa": [-30.5595, 22.9375],
+    "India": [20.5937, 78.9629],
+    "Ukraine": [48.3794, 31.1656],
+    "Azerbaijan": [40.1431, 47.5769],
+    "China": [35.8617, 104.1954],
+    "Colombia": [4.5709, -74.2973],
+    "Niger": [17.6078, 8.0817],
+    "Libya": [26.3351, 17.2283],
+    "Brazil": [-14.235, -51.9253],
+    "Mali": [17.5707, -3.9962],
+    "Indonesia": [-0.7893, 113.9213],
+    "Iraq": [33.2232, 43.6793],
+    "Iran": [32.4279, 53.688],
+    "South Sudan": [7.8627, 29.6949],
+    "Venezuela": [6.4238, -66.5897],
+    "Burkina Faso": [12.2383, -1.5616],
+    "Germany": [51.1657, 10.4515],
+    "United Kingdom": [55.3781, -3.436],
+    "Kuwait": [29.3117, 47.4818],
+    "Canada": [56.1304, -106.3468],
+    "Argentina": [-38.4161, -63.6167],
+    "Japan": [36.2048, 138.2529],
+    "Austria": [47.5162, 14.5501],
+    "Spain": [40.4637, -3.7492],
+    "Estonia": [58.5953, 25.0136],
+    "Hungary": [47.1625, 19.5033],
+    "Australia": [-25.2744, 133.7751],
+    "Morocco": [31.7917, -7.0926],
+    "Greece": [39.0742, 21.8243],
+    "Qatar": [25.3548, 51.1839],
+    "Oman": [21.4735, 55.9754],
+    "Liberia": [6.4281, -9.4295],
+    "Denmark": [56.2639, 9.5018],
+    "Malaysia": [4.2105, 101.9758],
+    "Jordan": [30.5852, 36.2384],
+    "Syria": [34.8021, 38.9968],
+    "Ethiopia": [9.145, 40.4897],
+    "Norway": [60.472, 8.4689],
+    "Ghana": [7.9465, -1.0232],
+    "Kazakhstan": [48.0196, 66.9237],
+    "Pakistan": [30.3753, 69.3451],
+    "Gabon": [-0.8037, 11.6094],
+    "United Arab Emirates": [23.4241, 53.8478],
+    "Algeria": [28.0339, 1.6596],
+    "Turkey": [38.9637, 35.2433],
+    "Cyprus": [35.1264, 33.4299],
+    "Belize": [17.1899, -88.4976],
+    "Poland": [51.9194, 19.1451]
+    // Add more countries as needed
+};
+
 // asyncMongo();
+
+const findCountries= ()=>{
+    let countries= new Set(data.map(item=>item.country));
+    let obj=[],count=0;
+    countries=[...countries];
+    countries= countries.filter(country=> country!=="");
+    countries.forEach(country=>{
+        count=0;
+        data.forEach(item=>{
+            if(item.country===country)count++;
+        })
+        // obj.push([...countryCoordinates[country],count*100])
+        obj.push({
+            country,
+            count: count*50
+        })
+    })
+    return obj;
+}
 
 app.get('/', (req, res) => {
   res.send('Server is Working!')
@@ -140,6 +219,15 @@ app.get("/api/get-region-bubbles",(req,res)=>{
     res.set('Access-Control-Allow-Origin', '*')
     res.send(response);
 });
+
+
+// Endpoint for geo heat map
+app.get("/api/get-heat-map", (req,res)=>{
+    const ans= findCountries();
+    res.set("Access-Control-Allow-Origin","*");
+    res.send(ans);
+})
+
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)
