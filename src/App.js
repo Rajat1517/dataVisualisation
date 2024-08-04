@@ -18,11 +18,6 @@ import DummyCarousel from './Components/DummyCarousel';
 import Logo from "./logo.png"
 import chart from "./chart.png"
 import world from "./world.png"
-import TimeSeries from './Components/TimeSeries';
-import SectorBars from './Components/SectorBars';
-import RegionBubbles from './Components/RegionBubbles';
-import RegionScatter from './Components/RegionScatter';
-import HeatMap from './Components/HeatMap';
 
 function App() {
 
@@ -50,7 +45,9 @@ function App() {
         method: "POST",
         mode: "cors"
       });
+      console.log("Extracting JSON");
       fetchedData = await fetchedData.json();
+      console.log(fetchedData)
       fetchedData = fetchedData[0];
       setDataItems(fetchedData);
       setFetching(false);
@@ -66,34 +63,6 @@ function App() {
     loadData();
   }, []);
 
-  
-  return(
-    <div style={{
-      height: "100vh",
-      // padding: "0 30%",
-      margin: "2%",
-      border: "1px solid black"
-    }}>
-      <div className='chart-container'>
-      <TimeSeries/>
-      </div>
-      <div className='chart-container'>
-      <SectorBars/>
-      </div>
-      <div className='chart-container'>
-      <RegionBubbles/>
-      </div>
-      <div className='chart-container'>
-      <HeatMap/>
-      </div>
-      {/* <div style={{
-        height: "100%",
-        width: "100%"
-      }}>
-      <RegionScatter/>
-      </div> */}
-      </div>
-  )
   
   
   return (
