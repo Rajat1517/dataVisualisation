@@ -390,269 +390,267 @@ const countryCodes = {
   'Poland': 'POL'
 };
 
-const countryData= [
-  {
-    "country": "United States of America",
-    "count": 5600
-  },
-  {
-    "country": "Mexico",
-    "count": 150
-  },
-  {
-    "country": "Nigeria",
-    "count": 300
-  },
-  {
-    "country": "Lebanon",
-    "count": 150
-  },
-  {
-    "country": "Russia",
-    "count": 1250
-  },
-  {
-    "country": "Saudi Arabia",
-    "count": 900
-  },
-  {
-    "country": "Angola",
-    "count": 100
-  },
-  {
-    "country": "Egypt",
-    "count": 300
-  },
-  {
-    "country": "South Africa",
-    "count": 150
-  },
-  {
-    "country": "India",
-    "count": 950
-  },
-  {
-    "country": "Ukraine",
-    "count": 100
-  },
-  {
-    "country": "Azerbaijan",
-    "count": 50
-  },
-  {
-    "country": "China",
-    "count": 1200
-  },
-  {
-    "country": "Colombia",
-    "count": 100
-  },
-  {
-    "country": "Niger",
-    "count": 100
-  },
-  {
-    "country": "Libya",
-    "count": 500
-  },
-  {
-    "country": "Brazil",
-    "count": 250
-  },
-  {
-    "country": "Mali",
-    "count": 50
-  },
-  {
-    "country": "Indonesia",
-    "count": 450
-  },
-  {
-    "country": "Iraq",
-    "count": 550
-  },
-  {
-    "country": "Iran",
-    "count": 950
-  },
-  {
-    "country": "South Sudan",
-    "count": 50
-  },
-  {
-    "country": "Venezuela",
-    "count": 300
-  },
-  {
-    "country": "Burkina Faso",
-    "count": 50
-  },
-  {
-    "country": "Germany",
-    "count": 150
-  },
-  {
-    "country": "United Kingdom",
-    "count": 300
-  },
-  {
-    "country": "Kuwait",
-    "count": 50
-  },
-  {
-    "country": "Canada",
-    "count": 300
-  },
-  {
-    "country": "Argentina",
-    "count": 50
-  },
-  {
-    "country": "Japan",
-    "count": 350
-  },
-  {
-    "country": "Austria",
-    "count": 50
-  },
-  {
-    "country": "Spain",
-    "count": 100
-  },
-  {
-    "country": "Estonia",
-    "count": 50
-  },
-  {
-    "country": "Hungary",
-    "count": 50
-  },
-  {
-    "country": "Australia",
-    "count": 200
-  },
-  {
-    "country": "Morocco",
-    "count": 50
-  },
-  {
-    "country": "Greece",
-    "count": 50
-  },
-  {
-    "country": "Qatar",
-    "count": 50
-  },
-  {
-    "country": "Oman",
-    "count": 100
-  },
-  {
-    "country": "Liberia",
-    "count": 50
-  },
-  {
-    "country": "Denmark",
-    "count": 50
-  },
-  {
-    "country": "Malaysia",
-    "count": 100
-  },
-  {
-    "country": "Jordan",
-    "count": 100
-  },
-  {
-    "country": "Syria",
-    "count": 100
-  },
-  {
-    "country": "Ethiopia",
-    "count": 50
-  },
-  {
-    "country": "Norway",
-    "count": 50
-  },
-  {
-    "country": "Ghana",
-    "count": 100
-  },
-  {
-    "country": "Kazakhstan",
-    "count": 50
-  },
-  {
-    "country": "Pakistan",
-    "count": 50
-  },
-  {
-    "country": "Gabon",
-    "count": 50
-  },
-  {
-    "country": "United Arab Emirates",
-    "count": 50
-  },
-  {
-    "country": "Algeria",
-    "count": 50
-  },
-  {
-    "country": "Turkey",
-    "count": 50
-  },
-  {
-    "country": "Cyprus",
-    "count": 50
-  },
-  {
-    "country": "Belize",
-    "count": 50
-  },
-  {
-    "country": "Poland",
-    "count": 50
-  }
-]
+// const countryData= [
+//   {
+//     "country": "United States of America",
+//     "count": 5600
+//   },
+//   {
+//     "country": "Mexico",
+//     "count": 150
+//   },
+//   {
+//     "country": "Nigeria",
+//     "count": 300
+//   },
+//   {
+//     "country": "Lebanon",
+//     "count": 150
+//   },
+//   {
+//     "country": "Russia",
+//     "count": 1250
+//   },
+//   {
+//     "country": "Saudi Arabia",
+//     "count": 900
+//   },
+//   {
+//     "country": "Angola",
+//     "count": 100
+//   },
+//   {
+//     "country": "Egypt",
+//     "count": 300
+//   },
+//   {
+//     "country": "South Africa",
+//     "count": 150
+//   },
+//   {
+//     "country": "India",
+//     "count": 950
+//   },
+//   {
+//     "country": "Ukraine",
+//     "count": 100
+//   },
+//   {
+//     "country": "Azerbaijan",
+//     "count": 50
+//   },
+//   {
+//     "country": "China",
+//     "count": 1200
+//   },
+//   {
+//     "country": "Colombia",
+//     "count": 100
+//   },
+//   {
+//     "country": "Niger",
+//     "count": 100
+//   },
+//   {
+//     "country": "Libya",
+//     "count": 500
+//   },
+//   {
+//     "country": "Brazil",
+//     "count": 250
+//   },
+//   {
+//     "country": "Mali",
+//     "count": 50
+//   },
+//   {
+//     "country": "Indonesia",
+//     "count": 450
+//   },
+//   {
+//     "country": "Iraq",
+//     "count": 550
+//   },
+//   {
+//     "country": "Iran",
+//     "count": 950
+//   },
+//   {
+//     "country": "South Sudan",
+//     "count": 50
+//   },
+//   {
+//     "country": "Venezuela",
+//     "count": 300
+//   },
+//   {
+//     "country": "Burkina Faso",
+//     "count": 50
+//   },
+//   {
+//     "country": "Germany",
+//     "count": 150
+//   },
+//   {
+//     "country": "United Kingdom",
+//     "count": 300
+//   },
+//   {
+//     "country": "Kuwait",
+//     "count": 50
+//   },
+//   {
+//     "country": "Canada",
+//     "count": 300
+//   },
+//   {
+//     "country": "Argentina",
+//     "count": 50
+//   },
+//   {
+//     "country": "Japan",
+//     "count": 350
+//   },
+//   {
+//     "country": "Austria",
+//     "count": 50
+//   },
+//   {
+//     "country": "Spain",
+//     "count": 100
+//   },
+//   {
+//     "country": "Estonia",
+//     "count": 50
+//   },
+//   {
+//     "country": "Hungary",
+//     "count": 50
+//   },
+//   {
+//     "country": "Australia",
+//     "count": 200
+//   },
+//   {
+//     "country": "Morocco",
+//     "count": 50
+//   },
+//   {
+//     "country": "Greece",
+//     "count": 50
+//   },
+//   {
+//     "country": "Qatar",
+//     "count": 50
+//   },
+//   {
+//     "country": "Oman",
+//     "count": 100
+//   },
+//   {
+//     "country": "Liberia",
+//     "count": 50
+//   },
+//   {
+//     "country": "Denmark",
+//     "count": 50
+//   },
+//   {
+//     "country": "Malaysia",
+//     "count": 100
+//   },
+//   {
+//     "country": "Jordan",
+//     "count": 100
+//   },
+//   {
+//     "country": "Syria",
+//     "count": 100
+//   },
+//   {
+//     "country": "Ethiopia",
+//     "count": 50
+//   },
+//   {
+//     "country": "Norway",
+//     "count": 50
+//   },
+//   {
+//     "country": "Ghana",
+//     "count": 100
+//   },
+//   {
+//     "country": "Kazakhstan",
+//     "count": 50
+//   },
+//   {
+//     "country": "Pakistan",
+//     "count": 50
+//   },
+//   {
+//     "country": "Gabon",
+//     "count": 50
+//   },
+//   {
+//     "country": "United Arab Emirates",
+//     "count": 50
+//   },
+//   {
+//     "country": "Algeria",
+//     "count": 50
+//   },
+//   {
+//     "country": "Turkey",
+//     "count": 50
+//   },
+//   {
+//     "country": "Cyprus",
+//     "count": 50
+//   },
+//   {
+//     "country": "Belize",
+//     "count": 50
+//   },
+//   {
+//     "country": "Poland",
+//     "count": 50
+//   }
+// ]
 
 
 const HeatMap = () => {
   const [geoJsonData, setGeoJsonData] = useState(null);
 
-  useEffect(() => {
-    const mapData = geoData;
-    mapData.features.forEach((feature) => {
-      const countryName = feature.properties.name;
-      const countryCode = countryCodes[countryName];
-      const countryInfo = countryData.find((c) => c.country === countryName);
 
-      if (countryInfo) {
-        feature.properties.count = countryInfo.count;
-      } else {
-        feature.properties.count = 0;
-      }
-    });
+  
+  const loadCountryData= async ()=>{
+    try{
+      const res= await fetch("http://localhost:5000/api/get-heat-map");
+      const data= await res.json();
+      const mapData = geoData;
+      mapData.features.forEach((feature) => {
+        const countryName = feature.properties.name;
+        const countryCode = countryCodes[countryName];
+        const countryInfo = data.find((c) => c.country === countryName);
+  
+        if (countryInfo) {
+          feature.properties.count = countryInfo.count;
+        } else {
+          feature.properties.count = 0;
+        }
+      });
+  
+      setGeoJsonData(mapData);
+    }catch(error){
+      console.log(error);
+    }
+  }
 
-    setGeoJsonData(mapData);
-  }, []);
+  useEffect(()=>{
+    loadCountryData();
+  },[])
 
   const getColor = (d) => {
-    // if(d==0) return "green";
-    // if(d<=40) return "#7CFC00";
-    // if(d<=200) return "rgb(200,200,200)";
-    // if(d<=300) return "orange";
-    // if(d<=400) return "orange";
-    // if(d<=500) return "#00BFFF";
-    // if(d<=600) return "#DC143C";
-    // if(d<=700) return "#FF1493";
-    // if(d<=800) return "#00FA9A";
-    // if(d<=900) return "#FF8C00";
-    // if(d<=1000) return "#8B4513";
-    // if(d<=1100) return "#FF00FF";
-    // if(d<=1500) return "tomato";
-    // return "red";
 
     if(d>800) return "rgb(255,0,0)";
     if(d<50) return "rgb(60,100,0)";
@@ -670,6 +668,10 @@ const HeatMap = () => {
       fillOpacity: 0.8,
     };
   }
+  const bounds = [
+    [-90, -180], // Southwest coordinates
+    [90, 180] // Northeast coordinates
+  ];
 
   return (
     <>
@@ -682,6 +684,10 @@ const HeatMap = () => {
         // bounceAtZoomLimits={true}
         // markerZoomAnimation={true}
         dragging={true}
+        maxBounds={bounds} // Set max bounds
+        maxBoundsViscosity={1.0} // Make the map stick to the bounds
+        maxZoom={10}
+        minZoom={2}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
