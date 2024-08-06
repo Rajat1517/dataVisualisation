@@ -60,7 +60,7 @@ function StockLines() {
         labels: ["Week 1","Week 2","Week 3","Week 4","Week 5","Week 6","Week 7"],
         datasets: [
           {
-            fill: false,
+            fill: true,
             label: 'Actual',
             // chartActual is used as the data for actual line
             data: intensities,
@@ -69,7 +69,7 @@ function StockLines() {
             borderWidth: 2,
           },
           {
-            fill: false,
+            fill: true,
             label: 'Prediction',
             // chartPrediction is used as the data for prediction line
             data: relevances,
