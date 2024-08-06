@@ -5,7 +5,7 @@ const {mongoDB} = require("./db");
 const cron = require('cron');
 const https = require("https");
 
-let  data= require("../../jsondata.json");
+let  data;
 
 const asyncMongo= async ()=>{
     data= await mongoDB();
@@ -71,7 +71,7 @@ const countryCoordinates = {
     // Add more countries as needed
 };
 
-// asyncMongo();
+asyncMongo();
 
 const findCountries= ()=>{
     let countries= new Set(data.map(item=>item.country));
@@ -220,6 +220,38 @@ app.get("/api/get-region-bubbles",(req,res)=>{
     res.send(response);
 });
 
+// Endpoint for country doughnut data
+app.get("/api/get-countries-doughnut", (req,res)=>{
+    let countries= new Set(data.map(item=> item.country));
+    countries= [...countries];
+    countries= countries.filter(country=> country !== "");
+    let ans=[],count=0;
+    countries.forEach(country=>{
+        count=0;
+        data.forEach(item=>{
+            if(item.country===country)count++;
+        })
+        ans.push({
+            country,
+            count,
+        })
+    })
+    count=0;
+    ans.forEach((item)=>{
+        if(item.count<15)count+=item.count;
+    })
+
+    ans= ans.filter(item=>{
+        return item.count>=15;
+    })
+    ans.push({
+        country: "Others",
+        count,
+    })
+    ans= ans.sort((a,b)=> a.count-b.count);
+    res.set("Access-Control-Allow-Origin","*");
+    res.send(ans);
+})
 
 // Endpoint for geo heat map
 app.get("/api/get-heat-map", (req,res)=>{

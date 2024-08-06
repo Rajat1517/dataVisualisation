@@ -23,6 +23,7 @@ import SectorBars from './Components/SectorBars';
 import RegionBubbles from './Components/RegionBubbles';
 import RegionScatter from './Components/RegionScatter';
 import HeatMap from './Components/HeatMap';
+import CountriesDoughnut from './Components/CountriesDoughnut';
 
 function App() {
 
@@ -86,12 +87,12 @@ function App() {
       <div className='chart-container'>
       <HeatMap/>
       </div>
-      {/* <div style={{
-        height: "100%",
-        width: "100%"
+      <div className='chart-container' style={{
+        display: "flex",
+        justifyContent: "center"
       }}>
-      <RegionScatter/>
-      </div> */}
+      <CountriesDoughnut/>
+      </div>
       </div>
   )
   
