@@ -261,6 +261,48 @@ app.get("/api/get-heat-map", (req,res)=>{
 })
 
 
+
+// Endpoint for stock line
+const mainpulateData= ()=>{
+    let intensities= new Set(data.map(item=>item.intensity));
+    let relevances= new Set(data.map(item=>item.relevance));
+    intensities=[...intensities];
+    relevances=[...relevances];
+    let intensityCounts=[];
+    let relevanceCounts=[];
+    let count=0;
+    intensities.forEach(intensity=>{
+        count=0;
+        data.forEach(item=>{
+            if(item.intensity===intensity)count++;
+        })
+        intensityCounts.push(count);
+    })
+
+    relevances.forEach(relevance=>{
+        count=0;
+        data.forEach(item=>{
+            if(item.relevance===relevance)count++;
+        })
+        relevanceCounts.push(count);
+    })
+    // relevanceCounts= relevanceCounts.sort((a,b)=>a-b);
+    intensityCounts= intensityCounts.filter(count=>count>20);
+    intensityCounts= intensityCounts.slice(0,8);
+    // intensityCounts= intensityCounts.sort((a,b)=>a-b);
+
+    return {
+        intensityCounts,
+        relevanceCounts,
+    }
+}
+app.get("/api/get-stock-line",(req,res)=>{
+    const ans= mainpulateData();
+    res.set("Access-Control-Allow-Origin", "*");
+    res.send(ans);
+})
+
+
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)
 });

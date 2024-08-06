@@ -24,6 +24,7 @@ import RegionBubbles from './Components/RegionBubbles';
 import RegionScatter from './Components/RegionScatter';
 import HeatMap from './Components/HeatMap';
 import CountriesDoughnut from './Components/CountriesDoughnut';
+import StockLines from './Components/StockLines';
 
 function App() {
 
@@ -86,6 +87,9 @@ function App() {
       </div>
       <div className='chart-container'>
       <HeatMap/>
+      </div>
+      <div className='chart-container'>
+      <StockLines/>
       </div>
       <div className='chart-container' style={{
         display: "flex",
