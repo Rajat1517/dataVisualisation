@@ -1,70 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Legend,
-  } from 'chart.js';
-  import { Line } from 'react-chartjs-2';
-  
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Legend
-  );
-
+import Chart from "react-apexcharts";
 
 function TimeSeries() {
 
     const [dataX,setDataX]= useState([]);
     const [dataY,setDataY]= useState([]);
     const [timeSeries,setTimeSeries]= useState([]);
-
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false ,
-        scales: {
-            y: {
-              min: 0, // Minimum value for the y-axis
-              max: 85, // Maximum value for the y-axis
-              ticks:{
-                stepSize: 5,
-              }
-            }
-          },
-        plugins: {
-          legend: {
-            display: false,
-            position: 'top',
-          },
-          title: {
-            display: true,
-            text: 'Amount of Gas Accidents',
-          },
-        },
-    };
-
-    const data = {
-    // chartWeeks is used as the labels
-    labels: dataX,
-    datasets: [
-      {
-        fill: false,
-        label: 'Frequency',
-        // chartActual is used as the data for actual line
-        data: dataY,
-        backgroundColor: '#0091d5b9',
-        borderColor: '#0091D5',
-        borderWidth: 2,
-      },
-    ],
-    };
 
   const loadTimeSeries= async ()=>{
     try{
@@ -80,6 +21,40 @@ function TimeSeries() {
     loadTimeSeries();
   },[])
 
+
+  const options= {
+    chart:{
+      type:"area"
+    },
+    xaxis: {
+      categories: dataX
+    },
+    stroke:{
+      curve: "smooth",
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'dark',
+        type: "vertical",
+        shadeIntensity: 0.5,
+        gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
+        inverseColors: true,
+        opacityFrom: 0.9,
+        opacityTo: 0.5,
+        stops: [0,100],
+        colorStops: []
+      }
+    }
+  };
+  const series= [
+    {
+      name: "Gas Accidents",
+      data: dataY,
+      
+    }
+  ] 
+
   useEffect(()=>{
     let x= timeSeries.map(item=> item.year);
     let y= timeSeries.map(item=> item.count);
@@ -88,7 +63,8 @@ function TimeSeries() {
   },[timeSeries])
 
   return (
-    <Line options={options} data={data}/>
+    // <Line options={options} data={data}/>
+    <Chart options={options} series={series} type='area'/>
   )
 }
 

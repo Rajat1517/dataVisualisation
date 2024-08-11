@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Chart from "react-apexcharts";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -41,48 +42,47 @@ function StockLines() {
     },[]);
 
 
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false ,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          title: {
-            display: true,
-            text: 'Tata Steel Avg Stock Price FY-2021 (in INR)',
-          },
-        },
-      };
-    
-      const data = {
-        // chartWeeks is used as the labels
-        labels: ["Week 1","Week 2","Week 3","Week 4","Week 5","Week 6","Week 7"],
-        datasets: [
-          {
-            fill: true,
-            label: 'Actual',
-            // chartActual is used as the data for actual line
-            data: intensities,
-            backgroundColor: '#0091d5b9',
-            borderColor: '#0091D5',
-            borderWidth: 2,
-          },
-          {
-            fill: true,
-            label: 'Prediction',
-            // chartPrediction is used as the data for prediction line
-            data: relevances,
-            backgroundColor: '#7e909aa7',
-            borderColor: '#7E909A',
-            borderWidth: 2,
-          }
-        ],
-      };
+    const options= {
+      chart:{
+        type:"line"
+      },
+      xaxis: {
+        categories: ["Week 1","Week 2","Week 3","Week 4","Week 5","Week 6","Week 7"],
+      },
+      stroke:{
+        curve: "smooth",
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shade: 'dark',
+          type: "horixontal",
+          shadeIntensity: 0.8,
+          gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0,100],
+          colorStops: []
+        }
+      }
+    };
+    const series= [
+      {
+        name: "Intensities",
+        data: intensities,
+        
+      },
+      {
+        name: "Relevances",
+        data: relevances,
+        
+      },
+    ] 
 
   return (
     <>
-    <Line options={options} data={data} />
+    <Chart options={options} series={series} type='line'/>
     </>
   )
 }
