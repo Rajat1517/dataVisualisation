@@ -83,7 +83,7 @@ function App() {
       <SectorBars/>
       </div>
       <div className='chart-container'>
-      <RegionBubbles/>
+      <RegionScatter/>
       </div>
       <div className='chart-container'>
       <HeatMap/>

@@ -1,5 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import Plot from 'react-plotly.js';
+import ReactApexChart from 'react-apexcharts';
+import { memo } from 'react';
 
 
 function RegionScatter() {
@@ -17,21 +19,21 @@ function RegionScatter() {
             data.forEach((item) => {
               index++;
               x.push(item.region);
-              y1.push({
-                x: index,
-                y: item.likelihood,
-                z: 1,
-              });
-              y2.push({
-                x: index,
-                y: item.relevance,
-                z: 2,
-              });
-              y3.push({
-                x: index,
-                y: item.intensity,
-                z: 3,
-              });
+              y1.push([
+                index,
+                item.likelihood,
+                20,
+              ]);
+              y2.push([
+                index,
+                item.relevance,
+                20,
+              ]);
+              y3.push([
+                index,
+                item.intensity,
+                20,
+              ]);
             });
             setDataX(x);
             setIntensities(y3);
@@ -105,15 +107,60 @@ function RegionScatter() {
         loadRegionBubbleData();
     },[])
 
+
+
+    const options = {
+      chart: {
+        type: 'bubble',
+        height: 350,
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      fill: {
+        opacity: 0.5,
+        type: "gradient"
+      },
+      title: {
+        text: 'Region Bubbles',
+        align: 'left',
+      },
+      xaxis: {
+        type: 'category',
+      },
+      yaxis: {
+        max: 18,
+      },
+      theme: {
+        palette: 'palette2',
+      },
+      colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
+    };
+  
+    const series = [
+      {
+        name: 'Inensity',
+        data: intensities,
+      },
+      {
+        name: 'Relevance',
+        data: relevances,
+      },
+      {
+        name: 'Likelihood',
+        data: likelihoods,
+      },
+    ];
     
   return (
     <>
-    <Plot layout={layout} data={data} style={{
+    {/* <Plot layout={layout} data={data} style={{
         height: "100%",
         width: "100%"
-    }}/>
+    }}/> */}
+    <ReactApexChart options={options} series={series} type="bubble" height={350} />
     </>
   )
 }
 
-export default RegionScatter;
+export default memo(RegionScatter);
