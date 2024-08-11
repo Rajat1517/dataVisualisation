@@ -72,7 +72,7 @@ function App() {
   return(
     <div style={{
       height: "100vh",
-      // padding: "0 30%",
+      padding: "0 30%",
       margin: "2%",
       border: "1px solid black"
     }}>

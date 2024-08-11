@@ -1,5 +1,4 @@
 import React, { useEffect,useState } from 'react';
-import Plot from 'react-plotly.js';
 import ReactApexChart from 'react-apexcharts';
 import { memo } from 'react';
 
@@ -22,17 +21,17 @@ function RegionScatter() {
               y1.push([
                 index,
                 item.likelihood,
-                20,
+                10,
               ]);
               y2.push([
                 index,
                 item.relevance,
-                20,
+                10,
               ]);
               y3.push([
                 index,
                 item.intensity,
-                20,
+                10,
               ]);
             });
             setDataX(x);
@@ -43,65 +42,6 @@ function RegionScatter() {
             console.error(error);
         }
     }
-
-    const data = [
-        {
-          x: intensities.map(intensity=> intensity.x),
-          y: intensities.map(intensity=> intensity.y),
-          z: intensities.map(intensity=> intensity.z),
-          mode: 'markers',
-          marker: {
-            size: 12,
-            line: {
-              color: 'rgba(217, 217, 217, 0.14)',
-              width: 0.5
-            },
-            opacity: 1
-          },
-          type: 'scatter3d'
-        },
-        {
-            x: relevances.map(intensity=> intensity.x),
-            y: relevances.map(intensity=> intensity.y),
-            z: relevances.map(intensity=> intensity.z),
-            mode: 'markers',
-            marker: {
-              size: 12,
-              line: {
-                color: 'green',
-                width: 0.5
-              },
-              opacity: 1
-            },
-            type: 'scatter3d'
-          },
-          {
-            x: likelihoods.map(intensity=> intensity.x),
-            y: likelihoods.map(intensity=> intensity.y),
-            z: likelihoods.map(intensity=> intensity.z),
-            mode: 'markers',
-            marker: {
-              size: 12,
-              line: {
-                color: 'rgba(217, 217, 217, 0.14)',
-                width: 0.5
-              },
-              opacity: 1
-            },
-            type: 'scatter3d'
-          },
-            
-      ];
-    
-      const layout = {
-        title: '3D Scatter Plot',
-        autosize: true,
-        scene: {
-          xaxis: { title: 'X Axis' },
-          yaxis: { title: 'Y Axis' },
-          zaxis: { title: 'Z Axis' }
-        }
-      };
 
     useEffect(()=>{
         loadRegionBubbleData();
@@ -125,7 +65,7 @@ function RegionScatter() {
         text: 'Region Bubbles',
         align: 'left',
       },
-      xaxis: {
+      xaxis: {  
         type: 'category',
       },
       yaxis: {
@@ -154,10 +94,6 @@ function RegionScatter() {
     
   return (
     <>
-    {/* <Plot layout={layout} data={data} style={{
-        height: "100%",
-        width: "100%"
-    }}/> */}
     <ReactApexChart options={options} series={series} type="bubble" height={350} />
     </>
   )
