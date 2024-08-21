@@ -5,7 +5,8 @@ const {mongoDB} = require("./db");
 const cron = require('cron');
 const https = require("https");
 
-let  data;
+// let data= require("../../jsondata.json");
+let data=[];
 
 const asyncMongo= async ()=>{
     data= await mongoDB();
@@ -152,7 +153,6 @@ app.get("/api/getTime-Series", (req,res)=>{
     });
 });
 
-
 // Endpoint for sector bars data
 app.get("/api/getSector-Bars",(req,res)=>{
     let sectors= new Set(data.map(item=>item.sector));
@@ -251,16 +251,14 @@ app.get("/api/get-countries-doughnut", (req,res)=>{
     ans= ans.sort((a,b)=> a.count-b.count);
     res.set("Access-Control-Allow-Origin","*");
     res.send(ans);
-})
+});
 
 // Endpoint for geo heat map
 app.get("/api/get-heat-map", (req,res)=>{
     const ans= findCountries();
     res.set("Access-Control-Allow-Origin","*");
     res.send(ans);
-})
-
-
+});
 
 // Endpoint for stock line
 const mainpulateData= ()=>{
@@ -295,13 +293,13 @@ const mainpulateData= ()=>{
         intensityCounts,
         relevanceCounts,
     }
-}
+};
+
 app.get("/api/get-stock-line",(req,res)=>{
     const ans= mainpulateData();
     res.set("Access-Control-Allow-Origin", "*");
     res.send(ans);
-})
-
+});
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)
