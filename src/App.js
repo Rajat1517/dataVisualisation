@@ -106,7 +106,7 @@ function App() {
     <div className="App">
       <div className="row-container">
         <div id='left-container'>
-          <img src={Logo} alt="" width="90%" style={{border: " 2px solid black",borderRadius: "360px", margin: "1px 0"}}/>
+          <img src={Logo} alt="" width="90%" style={{border: "2px solid black",borderRadius: "360px", margin: "1px 0"}}/>
 
           {/* Button to control the visible state */}
           <button id="filter-button" className='filter-inputs' onClick={() => {

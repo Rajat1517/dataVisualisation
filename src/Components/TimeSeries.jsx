@@ -51,7 +51,6 @@ function TimeSeries() {
     {
       name: "Gas Accidents",
       data: dataY,
-      
     }
   ] 
 
