@@ -116,7 +116,7 @@ function CountriesDoughnut() {
     //   };
 
   return (
-    <Chart options={options}  series={series} type='donut' width={470}/>
+    <Chart options={options}  series={series} type='donut' width={450}/>
   )
 }
 
